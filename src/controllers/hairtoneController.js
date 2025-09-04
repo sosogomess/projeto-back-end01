@@ -44,7 +44,7 @@ class HairtoneController {
       }
 
       // Criar a nova cor de cabelo
-      const newHairtone = await prisma.hairColor.create(name, image, category);
+      const newHairtone = await HairtoneModel.create(name, image, category);
 
       if (!newHairtone) {
         return res.status(400).json({ error: "Erro ao criar cor de cabelo" });
