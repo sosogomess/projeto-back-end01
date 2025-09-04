@@ -1,12 +1,10 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import HairtoneModel from "../models/hairtoneModel.js";
 
 class HairtoneController {
   // GET /hairtones
   async getAllHairtones(req, res) {
     try {
-      const tonsDeCabelo = await prisma.hairColor.findMany();
+      const tonsDeCabelo = await HairtoneModel.findAll();
       res.json(tonsDeCabelo);
     } catch (error) {
       console.error("Erro ao buscar as cores de cabelo:", error);
@@ -19,7 +17,7 @@ class HairtoneController {
     try {
       const { id } = req.params;
 
-      const tonsDeCabelo = await CollectionModel.findById(id);
+      const tonsDeCabelo = await HairtoneModel.findById(id);
 
       if (!tonsDeCabelo) {
         return res.status(404).json({ error: "Cor de cabelo não encontrada!" });
