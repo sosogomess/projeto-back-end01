@@ -7,12 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model HairColor {
+model HairTone {
   id        Int     @id @default(autoincrement())
   name      String
   image     String
   category  String
   favorites Boolean @default(false)
 
-  @@map("hair_colors")
+  @@map("hair_tones")
 }
