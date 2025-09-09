@@ -82,13 +82,6 @@ npm run dev
 ## 👩‍💻 Autora
 - Sophia Gomes
 
----
-
-## 📄 Licença
-MIT
-
----
-
 ## 💡 Dicas
 - Sempre crie o arquivo `.env` antes de rodar o projeto.
 - Use Thunder Client ou Postman para testar as rotas.
@@ -96,6 +89,4 @@ MIT
 
 ---
 
-## 🖼️ Imagem ilustrativa
 
-![HairTone Banner](https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80)
