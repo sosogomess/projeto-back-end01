@@ -3,10 +3,8 @@ import prisma from "../../prisma/prisma.js";
 class HairtoneModel {
   // Obter todas as cores de cabelo
   async findAll() {
-    const tonsDeCabelo = await prisma.hairtone.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
+    const tonsDeCabelo = await prisma.hairTone.findMany({
+  
     });
     // console.log(tonsDeCabelo);
     return tonsDeCabelo;
@@ -14,7 +12,7 @@ class HairtoneModel {
 
   // Obter uma cor de cabelo pelo ID
   async findById(id) {
-    const tonsDeCabelo = await prisma.hairtone.findUnique({
+    const tonsDeCabelo = await prisma.hairTone.findUnique({
       where: {
         id: Number(id),
       },
@@ -25,7 +23,7 @@ class HairtoneModel {
 
   // Criar uma nova cor de cabelo
   async create(name, image, category) {
-    const novoTonsDeCabelo = await prisma.hairtone.create({
+    const novoTonsDeCabelo = await prisma.hairTone.create({
       data: {
         name,
         image,
@@ -54,7 +52,7 @@ class HairtoneModel {
       category = category;
     }
 
-    const tonsDeCabeloAtualizado = await prisma.hairtone.update({
+    const tonsDeCabeloAtualizado = await prisma.hairTone.update({
       where: {
         id: Number(id),
       },
@@ -76,7 +74,7 @@ class HairtoneModel {
       return null;
     }
 
-    await prisma.hairtone.delete({
+    await prisma.hairTone.delete({
       where: {
         id: Number(id),
       },
