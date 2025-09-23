@@ -8,11 +8,12 @@ datasource db {
 }
 
 model HairTone {
-  id        Int     @id @default(autoincrement())
-  name      String
-  image     String
-  category  String
-  favorites Boolean @default(false)
+  id          Int     @id @default(autoincrement())
+  name        String
+  image       String
+  category    String
+  description String?
+  favorites   Boolean @default(false)
 
   @@map("hair_tones")
 }

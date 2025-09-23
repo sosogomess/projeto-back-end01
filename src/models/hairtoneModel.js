@@ -22,12 +22,13 @@ class HairtoneModel {
   }
 
   // Criar uma nova cor de cabelo
-  async create(name, image, category) {
+  async create(name, image, category, description) {
     const novoTonsDeCabelo = await prisma.hairTone.create({
       data: {
         name,
         image,
         category,
+        description,
       },
     });
 
@@ -35,7 +36,7 @@ class HairtoneModel {
   }
 
   // Atualizar uma cor de cabelo
-  async update(id, name, image, category) {
+  async update(id, name, image, category, description) {
     const tonsDeCabelo = await this.findById(id);
 
     if (!tonsDeCabelo) {
@@ -51,6 +52,9 @@ class HairtoneModel {
     if (category !== undefined) {
       category = category;
     }
+    if (description !== undefined) {
+      description = description;
+    }
 
     const tonsDeCabeloAtualizado = await prisma.hairTone.update({
       where: {
@@ -60,6 +64,7 @@ class HairtoneModel {
         name,
         image,
         category,
+        description,
       },
     });
 

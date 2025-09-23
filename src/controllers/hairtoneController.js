@@ -34,7 +34,7 @@ class HairtoneController {
   async createHairtone(req, res) {
     try {
       // Validação básica
-      const { name, image, category } = req.body;
+      const { name, image, category, description } = req.body;
 
       // Verifica se todos os campos da coleção foram fornecidos
       if (!name || !image || !category) {
@@ -44,7 +44,7 @@ class HairtoneController {
       }
 
       // Criar a nova cor de cabelo
-      const newHairtone = await HairtoneModel.create(name, image, category);
+      const newHairtone = await HairtoneModel.create(name, image, category, description);
 
       if (!newHairtone) {
         return res.status(400).json({ error: "Erro ao criar cor de cabelo" });
@@ -64,14 +64,15 @@ class HairtoneController {
   async updateHairtone(req, res) {
     try {
       const { id } = req.params;
-      const { name, image, category } = req.body;
+      const { name, image, category, description } = req.body;
 
       // Atualizar a cor de cabelo
       const updatedHairtone = await HairtoneModel.update(
         id,
         name,
         image,
-        category
+        category,
+        description
       );
 
       if (!updatedHairtone) {
